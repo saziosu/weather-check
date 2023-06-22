@@ -1,32 +1,155 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# PROJECT TITLE
+Description for project
 
-Welcome,
+[image here]
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Link for the finished deployed site: LINK
 
-## Reminders
+# Table of Contents
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+* [User Experience](#user-experience)
+    * [User Stories](#user-stories)
+    * [Wireframes](#wireframes)
+* [Design](#design)
+    * [Color Scheme](#color-scheme)
+    * [Tyopgraphy](#typography)
+    * [Imagery](#imagery)
+* [Features](#features)
+    * [Current Features](#current-features)
+    * [Future Features](#future-features)
+    * [Accessibility](#accessibility)
+* [Technology Used](#technology-used)
+    * [Languages](#languages)
+    * [Frameworks, Libraries & Programs](#frameworks-libraries--programs)
+* [Deployment](#deployment)
+* [Testing](#testing)
+* [Credits](#credits)
+    * [Code](#code)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
 
-## Creating the Heroku app
+# User Experience
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+aim and project goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User Stories
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* First Time User
+  
+* Returning User
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* Frequent User
 
-Connect your GitHub repository and deploy as normal.
+## Planning
 
-## Constraints
+wireframes, flowcharts, etc.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+# Design
 
----
+## Color Scheme
 
-Happy coding!
+COLORS & IMAGES
+
+## Typography
+
+Fonts were chosen from GoogleFonts
+
+* Font
+* Details
+* Here
+
+## Imagery
+
+Image sources
+
+# Features 
+
+## Current Features
+
+### Feature One
+
+FEATURE ONE
+IMAGE
+
+### Feature Two
+
+FEATURE TWO
+IMAGE
+
+### FEATURE THREE
+
+IMAGE
+FEATURE
+
+### FEATURE FOUR
+
+IMAGE
+FEATURE
+
+## Future Features
+
+* A few
+* Future
+* Features
+
+## Accessibility
+
+* Accessibility
+* Considerations
+* Here
+
+# Technology Used
+
+## Languages
+
+* List
+* Languages
+* Here
+
+## Frameworks, Libraries & Programs 
+
+* links
+* And
+* Description
+
+# Deployment & Development
+
+## Github Pages
+GitHub pages was used to deploy this site:
+
+1. Login (or signup) to Github.
+2. Go to the repo for the project, PROJECT REPO LINK.
+3. Click the settings button.
+4. Select pages on the left navigation menu.
+5. From the source dropdown select main branch and click save next to it.
+6. The site has been deployed on clicking save, this can take a few moments to generate the live link at the top of the settings page.
+
+## Forking the Repository
+
+1. Log in or Sign up to [GitHub](https://github.com/)
+2. Navigate to the PROJECT REPO LINK.
+3. Click the 'fork' button in the top right corner.
+4. Feel free to customize your repo name, this is not required.
+5. Click the Create Fork button.
+
+# Testing
+
+[TESTING.md](TESTING.md)
+
+# Credits
+
+## Code
+
+* Code
+* Credits
+* Here
+
+## Media
+
+* Media
+* Credits
+* Here
+
+# Acknowledgements
+
+* Thanks y'all!
