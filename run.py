@@ -33,4 +33,18 @@ def city_check():
     return latitude, longitude
 
 
+def get_current_weather(lat, long):
+    """
+    Function to get the current weather of the city chosen by the user.
+    """
+    weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}")
+    weather_data = weather.json()
+    return weather_data
+
+
+def main():
+    latitude, longitude = city_check()
+    get_current_weather(latitude, longitude)
+
+
 main()
