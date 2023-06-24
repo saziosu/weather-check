@@ -37,15 +37,25 @@ def city_check():
 def get_current_weather(lat, long):
     """
     Function to get the current weather of the city chosen by the user.
+    Prints details of main weather, temperature and humidity
     """
     weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}")
     weather_data = weather.json()
     sky = weather_data['weather'][0]['description']
     current_temp_k = weather_data['main']['temp']
     current_temp_c = round(current_temp_k - 273.15)
+    feels_k = weather_data['main']['feels_like']
+    feels_c = round(feels_k - 273.15)
+    hum = weather_data['main']['humidity']
     print(f"Current weather:")
-    print(f"Today you have {sky}")
+    if sky == 'clear sky':
+        print(f"Today you have a lovely {sky}")
+    else:
+        print(f"Today you have some {sky}")
     print(f"The current temperature is {current_temp_c}C")
+    if current_temp_c != feels_c:
+        print(f"It feels like {feels_c}C")
+    print(f"Humidity is {hum}%")
 
     return weather_data
 
