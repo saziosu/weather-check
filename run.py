@@ -49,6 +49,7 @@ def get_current_weather(lat, long):
     hum = weather_data['main']['humidity']
     sunrise = datetime.fromtimestamp(weather_data['sys']['sunrise'])
     sunset = datetime.fromtimestamp(weather_data['sys']['sunset'])
+    wind_speed = weather_data['wind']['speed']
     clouds = weather_data['clouds']['all']
     print(f"Current weather:")
     if sky == 'clear sky':
@@ -56,6 +57,7 @@ def get_current_weather(lat, long):
     else:
         print(f"Today you have some {sky}")
         print(f"Cloud cover is {clouds}%")
+    print(f"Wind speed is {wind_speed} m/s")
     print(f"The current temperature is {current_temp_c}C")
     if current_temp_c != feels_c:
         print(f"It feels like {feels_c}C")
@@ -69,6 +71,6 @@ def get_current_weather(lat, long):
 def main():
     latitude, longitude = city_check()
     get_current_weather(latitude, longitude)
-    
+
 
 main()
