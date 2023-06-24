@@ -1,5 +1,5 @@
 import requests
-import datetime
+from datetime import datetime
 
 API = open("credentials", "r").read()
 LOCATION_URL_BASE = "http://api.openweathermap.org/geo/1.0/direct?q="
@@ -47,15 +47,21 @@ def get_current_weather(lat, long):
     feels_k = weather_data['main']['feels_like']
     feels_c = round(feels_k - 273.15)
     hum = weather_data['main']['humidity']
+    sunrise = datetime.fromtimestamp(weather_data['sys']['sunrise'])
+    sunset = datetime.fromtimestamp(weather_data['sys']['sunset'])
+    clouds = weather_data['clouds']['all']
     print(f"Current weather:")
     if sky == 'clear sky':
         print(f"Today you have a lovely {sky}")
     else:
         print(f"Today you have some {sky}")
+        print(f"Cloud cover is {clouds}%")
     print(f"The current temperature is {current_temp_c}C")
     if current_temp_c != feels_c:
         print(f"It feels like {feels_c}C")
     print(f"Humidity is {hum}%")
+    print(f"Sunrise: {sunrise}")
+    print(f"Sunset: {sunset}")
 
     return weather_data
 
