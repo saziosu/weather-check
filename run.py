@@ -26,8 +26,9 @@ def city_check():
     location_detail = location.json()[0]
     latitude = location_detail['lat']
     longitude = location_detail['lon']
+    country = location_detail['country']
     if location_status == 200:
-        print(f"Great! Checking weather for {city}...")
+        print(f"Great! Checking weather for {city}, {country}...")
     else:
         print("Error found, please run again")
     return latitude, longitude
@@ -39,12 +40,19 @@ def get_current_weather(lat, long):
     """
     weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}")
     weather_data = weather.json()
+    sky = weather_data['weather'][0]['description']
+    current_temp_k = weather_data['main']['temp']
+    current_temp_c = round(current_temp_k - 273.15)
+    print(f"Current weather:")
+    print(f"Today you have {sky}")
+    print(f"The current temperature is {current_temp_c}C")
+
     return weather_data
 
 
 def main():
     latitude, longitude = city_check()
     get_current_weather(latitude, longitude)
-
+    
 
 main()
