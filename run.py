@@ -10,15 +10,12 @@ load_dotenv()
 API = os.getenv("API_KEY")
 
 LOCATION_URL_BASE = "http://api.openweathermap.org/geo/1.0/direct?q="
-""" 
-full url for location is
-http://api.openweathermap.org/geo/1.0/direct?q={cityname}&limit={limit}&appid={APIkey}
-"""
 CITY_URL_BASE = "https://api.openweathermap.org/data/2.5/weather?"
+FORECAST_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall?"
 
 """
-full url for current weather is
-https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={APIkey}
+full url
+https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}9&exclude=minutely,hourly,current&appid={API}
 """
 
 
@@ -74,6 +71,16 @@ def get_current_weather(lat, long):
     return weather_data
 
 
+def weather_forecast(lat, long):
+    print("Looks like you're needing the weather forecast!")
+    print(f"Please choose how many days in the future you would like to see.")
+    print(f"Example: For tomorrow's forecast type 1.")
+    fore_day_count = int(input("Make your selection:"))
+    forecast_check = requests.get(f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
+    forecast_data = forecast_check.json()
+    print(f"Checking forecast for {fore_day_count} day in future")
+
+
 def main():
     print(f"Welcome to Weather Check!\n")
     city = input("Please enter your city: \n")
@@ -88,7 +95,7 @@ def main():
     if key_press == 1:
         get_current_weather(latitude, longitude)
     elif key_press == 2:
-        print("Coming soon...")
+        weather_forecast(latitude, longitude)
     elif key_press == 3:
         print("Coming soon...")
     elif key_press == 4:
