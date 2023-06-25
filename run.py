@@ -24,7 +24,8 @@ def city_check(city_select):
     Checks the validity of the User's input and pulls the
     latitude and longitude from their city input to return
     '''
-    location = requests.get(f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
+    location = requests.get(
+        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
     location_status = location.status_code
     location_detail = location.json()[0]
     latitude = location_detail['lat']
@@ -50,8 +51,10 @@ def get_current_weather(lat, long):
     feels_k = weather_data['main']['feels_like']
     feels_c = round(feels_k - 273.15)
     hum = weather_data['main']['humidity']
-    sunrise = datetime.fromtimestamp(weather_data['sys']['sunrise'] + weather_data['timezone'])
-    sunset = datetime.fromtimestamp(weather_data['sys']['sunset'] + weather_data['timezone'])
+    sunrise = datetime.fromtimestamp(
+        weather_data['sys']['sunrise'] + weather_data['timezone'])
+    sunset = datetime.fromtimestamp(
+        weather_data['sys']['sunset'] + weather_data['timezone'])
     wind_speed = weather_data['wind']['speed']
     clouds = weather_data['clouds']['all']
     print(f"Current weather:")
@@ -76,11 +79,13 @@ def weather_forecast(lat, long):
     print(f"Please choose how many days in the future you would like to see.")
     print(f"Example: For tomorrow's forecast type 1.")
     fore_day_select = int(input("Make your selection:"))
-    forecast_check = requests.get(f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
+    forecast_check = requests.get(
+        f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
     forecast_data = forecast_check.json()
     print(f"Checking forecast for {fore_day_select} day(s) in future")
     forecast_day = forecast_data["daily"][fore_day_select]
-    forecast_date = datetime.fromtimestamp(forecast_day['dt'] + forecast_data["timezone_offset"])
+    forecast_date = datetime.fromtimestamp(
+        forecast_day['dt'] + forecast_data["timezone_offset"])
     print(f"Date chosen: {forecast_date} (City's local time)\n")
     forecast_summary = forecast_day["summary"]
     print(f"{forecast_summary}")
