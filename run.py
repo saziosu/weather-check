@@ -75,10 +75,15 @@ def weather_forecast(lat, long):
     print("Looks like you're needing the weather forecast!")
     print(f"Please choose how many days in the future you would like to see.")
     print(f"Example: For tomorrow's forecast type 1.")
-    fore_day_count = int(input("Make your selection:"))
+    fore_day_select = int(input("Make your selection:"))
     forecast_check = requests.get(f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
     forecast_data = forecast_check.json()
-    print(f"Checking forecast for {fore_day_count} day(s) in future")
+    print(f"Checking forecast for {fore_day_select} day(s) in future")
+    forecast_day = forecast_data["daily"][fore_day_select]
+    forecast_date = datetime.fromtimestamp(forecast_day['dt'] + forecast_data["timezone_offset"])
+    print(f"Date chosen: {forecast_date} (City's local time)\n")
+    forecast_summary = forecast_day["summary"]
+    print(f"{forecast_summary}")
 
 
 def main():
