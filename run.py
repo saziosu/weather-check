@@ -1,7 +1,14 @@
+import os
+from dotenv import load_dotenv, dotenv_values
 import requests
 from datetime import datetime
 
-API = open("credentials", "r").read()
+"""
+Load secret key API credentials
+"""
+load_dotenv()
+API = os.getenv("API_KEY")
+
 LOCATION_URL_BASE = "http://api.openweathermap.org/geo/1.0/direct?q="
 """ 
 full url for location is
