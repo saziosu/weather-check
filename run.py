@@ -50,8 +50,8 @@ def get_current_weather(lat, long):
     feels_k = weather_data['main']['feels_like']
     feels_c = round(feels_k - 273.15)
     hum = weather_data['main']['humidity']
-    sunrise = datetime.fromtimestamp(weather_data['sys']['sunrise'])
-    sunset = datetime.fromtimestamp(weather_data['sys']['sunset'])
+    sunrise = datetime.fromtimestamp(weather_data['sys']['sunrise'] + weather_data['timezone'])
+    sunset = datetime.fromtimestamp(weather_data['sys']['sunset'] + weather_data['timezone'])
     wind_speed = weather_data['wind']['speed']
     clouds = weather_data['clouds']['all']
     print(f"Current weather:")
@@ -65,8 +65,8 @@ def get_current_weather(lat, long):
     if current_temp_c != feels_c:
         print(f"It feels like {feels_c}C")
     print(f"Humidity is {hum}%")
-    print(f"Sunrise: {sunrise} UTC")
-    print(f"Sunset: {sunset} UTC")
+    print(f"Sunrise: {sunrise} (City's local time)")
+    print(f"Sunset: {sunset} (City's local time)")
 
     return weather_data
 
@@ -78,7 +78,7 @@ def weather_forecast(lat, long):
     fore_day_count = int(input("Make your selection:"))
     forecast_check = requests.get(f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
     forecast_data = forecast_check.json()
-    print(f"Checking forecast for {fore_day_count} day in future")
+    print(f"Checking forecast for {fore_day_count} day(s) in future")
 
 
 def main():
