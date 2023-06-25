@@ -65,8 +65,8 @@ def get_current_weather(lat, long):
     if current_temp_c != feels_c:
         print(f"It feels like {feels_c}C")
     print(f"Humidity is {hum}%")
-    print(f"Sunrise: {sunrise}")
-    print(f"Sunset: {sunset}")
+    print(f"Sunrise: {sunrise} UTC")
+    print(f"Sunset: {sunset} UTC")
 
     return weather_data
 
