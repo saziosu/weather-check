@@ -78,17 +78,36 @@ def weather_forecast(lat, long):
     print("Looks like you're needing the weather forecast!")
     print(f"Please choose how many days in the future you would like to see.")
     print(f"Example: For tomorrow's forecast type 1.")
-    fore_day_select = int(input("Make your selection:"))
+    fore_day_select = int(input("Make your selection:\n"))
     forecast_check = requests.get(
         f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
     forecast_data = forecast_check.json()
-    print(f"Checking forecast for {fore_day_select} day(s) in future")
     forecast_day = forecast_data["daily"][fore_day_select]
     forecast_date = datetime.fromtimestamp(
         forecast_day['dt'] + forecast_data["timezone_offset"])
-    print(f"Date chosen: {forecast_date} (City's local time)\n")
     forecast_summary = forecast_day["summary"]
+    for time, temp in forecast_day["temp"].items():
+        forecast_day["temp"][time] = round(temp - 273.15)
+    morning_temp_c = forecast_day["temp"]["morn"]
+    day_temp_c = forecast_day["temp"]["day"]
+    eve_temp_c = forecast_day["temp"]["eve"]
+    night_temp_c = forecast_day["temp"]["night"]
+    forecast_hum = forecast_day["humidity"]
+    forecast_speed = forecast_day["wind_speed"]
+    forecast_cloud = forecast_day["clouds"]
+    forecast_rain = forecast_day["rain"]
+    print(f"Checking forecast for {fore_day_select} day(s) in future\n")
+    print(f"Date chosen: {forecast_date} (City's local time)")
     print(f"{forecast_summary}")
+    print(f"Cloud cover will be {forecast_cloud}%")
+    print(f"Wind speed will be {forecast_speed}m/s")
+    print(f"Morning temperature: {morning_temp_c}C")
+    print(f"Day temperature: {day_temp_c}C")
+    print(f"Evening temperature: {eve_temp_c}C")
+    print(f"Night temperature: {night_temp_c}C")
+    print(f"Humidity will be {forecast_hum}%")
+    print(f"Rain: {forecast_rain}mm")
+
 
 
 def main():
