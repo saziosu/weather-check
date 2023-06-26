@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv, dotenv_values
 import requests
+import time
 from datetime import datetime
 
 """
@@ -9,15 +10,18 @@ Load secret key API credentials
 load_dotenv()
 API = os.getenv("API_KEY")
 
+"""
+API URLS
+"""
 LOCATION_URL_BASE = "http://api.openweathermap.org/geo/1.0/direct?q="
 CITY_URL_BASE = "https://api.openweathermap.org/data/2.5/weather?"
 FORECAST_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall?"
+HISTORY_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall/timemachine?"
 
 """
 full url
-https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}9&exclude=minutely,hourly,current&appid={API}
+https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={API key}
 """
-
 
 def city_check(city_select):
     '''
@@ -109,6 +113,17 @@ def weather_forecast(lat, long):
     print(f"Rain: {forecast_rain}mm")
 
 
+def weather_history(lat, long):
+    print("You can check past weather from 01/01/1979!")
+    print("Date format must be DD/MM/YYYY")
+    past_date = input("What date would you like to check the weather?\n")
+    past_convert = datetime.strptime(past_date, "%d/%m/%Y")
+    past_time = round(datetime.timestamp(past_convert))
+    date_check = requests.get(
+        f"{HISTORY_URL_BASE}lat={lat}&lon={long}&dt={past_time}&appid={API}")
+    past_data = date_check.json()
+    print(past_data)
+
 
 def main():
     print(f"Welcome to Weather Check!\n")
@@ -126,7 +141,7 @@ def main():
     elif key_press == 2:
         weather_forecast(latitude, longitude)
     elif key_press == 3:
-        print("Coming soon...")
+        weather_history(latitude, longitude)
     elif key_press == 4:
         close = str(input("Are you sure you want to finish? (y/n)\n"))
         if close == "y":
