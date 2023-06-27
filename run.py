@@ -23,6 +23,7 @@ full url
 https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={API key}
 """
 
+
 def city_check(city_select):
     '''
     Checks the validity of the User's input and pulls the
@@ -110,7 +111,7 @@ def weather_forecast(lat, long):
     print(f"Evening temperature: {eve_temp_c}C")
     print(f"Night temperature: {night_temp_c}C")
     print(f"Humidity will be {forecast_hum}%")
-    print(f"Rain: {forecast_rain}mm")
+    print(f"There will be {forecast_rain}mm of rain")
 
 
 def weather_history(lat, long):
