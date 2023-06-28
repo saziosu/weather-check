@@ -16,6 +16,7 @@ API URLS
 LOCATION_URL_BASE = "http://api.openweathermap.org/geo/1.0/direct?q="
 CITY_URL_BASE = "https://api.openweathermap.org/data/2.5/weather?"
 FORECAST_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall?"
+FORECAST_EXCLUDE = "&exclude=minutely,hourly,current&appid="
 HISTORY_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall/timemachine?"
 
 """
@@ -90,7 +91,7 @@ def weather_forecast(lat, long):
     print(f"Example: For tomorrow's forecast type 1.")
     fore_day_select = int(input("Make your selection:\n"))
     forecast_check = requests.get(
-        f"{FORECAST_URL_BASE}lat={lat}&lon={long}&exclude=minutely,hourly,current&appid={API}")
+        f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}")
     forecast_data = forecast_check.json()
     forecast_day = forecast_data["daily"][fore_day_select]
     forecast_date = datetime.fromtimestamp(
@@ -105,7 +106,8 @@ def weather_forecast(lat, long):
     forecast_hum = forecast_day["humidity"]
     forecast_speed = forecast_day["wind_speed"]
     forecast_cloud = forecast_day["clouds"]
-    forecast_rain = forecast_day["rain"]
+    if "rain" in forecast_day:
+        forecast_rain = forecast_day["rain"]
     print(f"Checking forecast for {fore_day_select} day(s) in future\n")
     print(f"Date chosen: {forecast_date} (City's local time)")
     print(f"{forecast_summary}")
