@@ -20,11 +20,6 @@ FORECAST_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall?"
 FORECAST_EXCLUDE = "&exclude=minutely,hourly,current&appid="
 HISTORY_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall/timemachine?"
 
-"""
-full url
-https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={API key}
-"""
-
 
 def city_check(city_select):
     '''
@@ -39,7 +34,8 @@ def city_check(city_select):
     longitude = location_detail['lon']
     country = location_detail['country']
     if location_status == 200:
-        print(f"Great! Checking weather for {city_select}, {country}...")
+        cprint(
+            f"Great! Checking weather for {city_select},{country}.", "cyan")
     else:
         print("Error found, please run again")
     return latitude, longitude
@@ -64,7 +60,7 @@ def get_current_weather(lat, long):
         weather_data['sys']['sunset'] + weather_data['timezone'])
     wind_speed = weather_data['wind']['speed']
     clouds = weather_data['clouds']['all']
-    print(f"Current weather:")
+    cprint(f"Current weather:\n", "light_blue")
     if sky == 'clear sky':
         print(f"Today you have a lovely {sky}")
     else:
@@ -83,7 +79,7 @@ def get_current_weather(lat, long):
 
 def weather_forecast(lat, long):
     """
-    Prints the weather forecast to the user. 
+    Prints the weather forecast to the user.
     User can choose how many days in the future they would like to see
     the forecast for.
     """
@@ -109,7 +105,7 @@ def weather_forecast(lat, long):
     forecast_cloud = forecast_day["clouds"]
     if "rain" in forecast_day:
         forecast_rain = forecast_day["rain"]
-    print(f"Checking forecast for {fore_day_select} day(s) in future\n")
+    cprint(f"\nChecking forecast for {fore_day_select} day(s) in future\n", "light_yellow")
     print(f"Date chosen: {forecast_date} (City's local time)")
     print(f"{forecast_summary}")
     print(f"Cloud cover will be {forecast_cloud}%")
@@ -123,8 +119,8 @@ def weather_forecast(lat, long):
 
 
 def weather_history(lat, long):
-    print("You can check past weather from 01/01/1979!")
-    print("Date format must be DD/MM/YYYY")
+    cprint("\nYou can check past weather from 01/01/1979!", "light_green")
+    cprint("Date format must be DD/MM/YYYY\n", "light_green")
     past_date = input("What date would you like to check the weather?\n")
     past_convert = datetime.strptime(past_date, "%d/%m/%Y")
     past_time = round(datetime.timestamp(past_convert))
@@ -139,9 +135,9 @@ def weather_history(lat, long):
     past_hum = past_data_list["humidity"]
     past_sunrise = past_data_list["sunrise"]
     past_sunset = past_data_list["sunset"]
-    print(f"On this day there were some {past_main}")
+    print(f"\nOn this day there were some {past_main}")
     print(f"Cloud cover was {past_cloud}%")
-    print(f"Wind speed was {past_speed}")
+    print(f"Wind speed was {past_speed}m/s")
     print(f"The temperature was {past_temp_c}C")
     print(f"The humidity was {past_hum}%")
     print(f"Sunrise: {past_sunrise} (City's local time)")
@@ -149,7 +145,7 @@ def weather_history(lat, long):
 
 
 def main():
-    print(f"Welcome to Weather Check!\n")
+    cprint(f"\nWelcome to Weather Check!\n", "green")
     city = input("Please enter your city: \n")
     city_check(city)
     latitude, longitude = city_check(city)
