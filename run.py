@@ -3,6 +3,7 @@ from dotenv import load_dotenv, dotenv_values
 import requests
 import time
 from datetime import datetime
+from termcolor import colored, cprint
 
 """
 Load secret key API credentials
