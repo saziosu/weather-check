@@ -80,6 +80,11 @@ def get_current_weather(lat, long):
 
 
 def weather_forecast(lat, long):
+    """
+    Prints the weather forecast to the user. 
+    User can choose how many days in the future they would like to see
+    the forecast for.
+    """
     print("Looks like you're needing the weather forecast!")
     print(f"Please choose how many days in the future you would like to see.")
     print(f"Example: For tomorrow's forecast type 1.")
