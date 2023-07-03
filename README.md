@@ -1,9 +1,10 @@
-# PROJECT TITLE
-Description for project
+# Weather Check
+Weather Check is a python app for checking current, past and weather forecast.
+This project utilises the OpenWeather API for accurate weather readings from your chosen city.
 
 [image here]
 
-Link for the finished deployed site: LINK
+Link for the finished deployed site: [Weather Check](https://weather-check-e66ed6c3dc9b.herokuapp.com/)
 
 # Table of Contents
 
@@ -30,15 +31,14 @@ Link for the finished deployed site: LINK
 
 # User Experience
 
-aim and project goals
+The aim of this project is to provide the user with accurate weather information based on the user's selection of the city.
+It provides information on current, past and forecasted weather.
 
 ## User Stories
 
-* First Time User
+* As a first time User, we want to understand immediately what information is required from us to run the app effectively.
   
-* Returning User
-
-* Frequent User
+* As a returning User, we want to be able to input a new city to check the weather for any location we wish to see weather information for.
 
 ## Planning
 
