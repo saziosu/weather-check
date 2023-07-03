@@ -11,10 +11,6 @@ Link for the finished deployed site: [Weather Check](https://weather-check-e66ed
 * [User Experience](#user-experience)
     * [User Stories](#user-stories)
     * [Wireframes](#wireframes)
-* [Design](#design)
-    * [Color Scheme](#color-scheme)
-    * [Tyopgraphy](#typography)
-    * [Imagery](#imagery)
 * [Features](#features)
     * [Current Features](#current-features)
     * [Future Features](#future-features)
@@ -42,25 +38,9 @@ It provides information on current, past and forecasted weather.
 
 ## Planning
 
-wireframes, flowcharts, etc.
+[Miro](https://miro.com/) was used for planning the project
 
-# Design
-
-## Color Scheme
-
-COLORS & IMAGES
-
-## Typography
-
-Fonts were chosen from GoogleFonts
-
-* Font
-* Details
-* Here
-
-## Imagery
-
-Image sources
+![Miro flowchart image](https://res.cloudinary.com/dygj0wxf0/image/upload/v1688408322/miro-screenshot_b3yvul.png)
 
 # Features 
 
@@ -102,15 +82,13 @@ FEATURE
 
 ## Languages
 
-* List
-* Languages
-* Here
+* Python
 
 ## Frameworks, Libraries & Programs 
 
-* links
-* And
-* Description
+* [Python Requests](https://pypi.org/project/requests/)
+* [Python Dotenv](https://pypi.org/project/python-dotenv/)
+* [Python Termcolor](https://pypi.org/project/termcolor/)
 
 # Deployment & Development
 
