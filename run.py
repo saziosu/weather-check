@@ -36,18 +36,22 @@ def city_check(city_select):
     Checks the validity of the User's input and pulls the
     latitude and longitude from their city input to return
     '''
-    location = requests.get(
-        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
-    location_status = location.status_code
-    location_detail = location.json()[0]
-    latitude = location_detail['lat']
-    longitude = location_detail['lon']
-    country = location_detail['country']
-    if location_status == 200:
-        cprint(
-            f"Great! Checking weather for {city_select},{country}.", "cyan")
-    else:
-        print("Error found, please run again")
+    try:
+        location = requests.get(
+            f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
+        location_status = location.status_code
+        location_detail = location.json()[0]
+        latitude = location_detail['lat']
+        longitude = location_detail['lon']
+        country = location_detail['country']
+        if location_status == 200:
+            cprint(
+                f"Great! Checking weather for {city_select},{country}.", "cyan")
+        else:
+            print("Error found, please run again")
+    except IndexError:
+        print("Invalid City, please try again")
+    
     return latitude, longitude
 
 
