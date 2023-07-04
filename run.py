@@ -103,8 +103,6 @@ def weather_forecast(lat, long):
     forecast_hum = forecast_day["humidity"]
     forecast_speed = forecast_day["wind_speed"]
     forecast_cloud = forecast_day["clouds"]
-    if "rain" in forecast_day:
-        forecast_rain = forecast_day["rain"]
     cprint(f"\nChecking forecast for {fore_day_select} day(s) in future\n", "light_yellow")
     print(f"Date chosen: {forecast_date} (City's local time)")
     print(f"{forecast_summary}")
@@ -115,7 +113,11 @@ def weather_forecast(lat, long):
     print(f"Evening temperature: {eve_temp_c}C")
     print(f"Night temperature: {night_temp_c}C")
     print(f"Humidity will be {forecast_hum}%")
-    print(f"There will be {forecast_rain}mm of rain")
+    if "rain" in forecast_day:
+        forecast_rain = forecast_day["rain"]
+        print(f"There will be {forecast_rain}mm of rain")
+    else:
+        print("There will be 0mm of rain")
 
 
 def weather_history(lat, long):
