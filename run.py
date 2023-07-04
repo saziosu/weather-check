@@ -22,6 +22,15 @@ FORECAST_EXCLUDE = "&exclude=minutely,hourly,current&appid="
 HISTORY_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall/timemachine?"
 
 
+def welcome_message():
+    cprint(displays.TITLE, "blue")
+    cprint(displays.UMBRELLA, "yellow")
+    cprint(f"\nWelcome to Weather Check!\n", "green")
+    cprint(f"Weather Check is an app to check the current, past and forecasted weather.", "green")
+    cprint(f"Past weather data can be checked up to 8 days", "green")
+    cprint(f"Weather forecast data can be checked from 01/01/1979.\n", "green")
+
+
 def city_check(city_select):
     '''
     Checks the validity of the User's input and pulls the
@@ -150,12 +159,6 @@ def weather_history(lat, long):
 
 
 def main():
-    cprint(displays.TITLE, "blue")
-    cprint(displays.UMBRELLA, "yellow")
-    cprint(f"\nWelcome to Weather Check!\n", "green")
-    cprint(f"Weather Check is an app to check the current, past and forecasted weather.", "green")
-    cprint(f"Past weather data can be checked up to 8 days", "green")
-    cprint(f"Weather forecast data can be checked from 01/01/1979.", "green")
     city = input("Please enter your city: \n")
     city_check(city)
     latitude, longitude = city_check(city)
@@ -181,4 +184,5 @@ def main():
         print("Error, invalid selection")
 
 
+welcome_message()
 main()
