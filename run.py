@@ -135,8 +135,10 @@ def weather_history(lat, long):
     past_speed = past_data_list["wind_speed"]
     past_temp_c = round(past_data_list["temp"] - 273.15)
     past_hum = past_data_list["humidity"]
-    past_sunrise = past_data_list["sunrise"]
-    past_sunset = past_data_list["sunset"]
+    past_sunrise = datetime.fromtimestamp(
+        past_data_list["sunrise"] + past_data['timezone_offset'])
+    past_sunset = datetime.fromtimestamp(
+        past_data_list["sunset"] + past_data['timezone_offset'])
     print(f"\nOn this day there were some {past_main}")
     print(f"Cloud cover was {past_cloud}%")
     print(f"Wind speed was {past_speed}m/s")
