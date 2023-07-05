@@ -36,21 +36,18 @@ def city_check(city_select):
     Checks the validity of the User's input and pulls the
     latitude and longitude from their city input to return
     '''
-    try:
-        location = requests.get(
-            f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
-        location_status = location.status_code
-        location_detail = location.json()[0]
-        latitude = location_detail['lat']
-        longitude = location_detail['lon']
-        country = location_detail['country']
-        if location_status == 200:
-            cprint(
-                f"Great! Checking weather for {city_select},{country}.", "cyan")
-        else:
-            print("Error found, please run again")
-    except IndexError:
-        print("Invalid City, please try again")
+    location = requests.get(
+        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
+    location_status = location.status_code
+    location_detail = location.json()[0]
+    latitude = location_detail['lat']
+    longitude = location_detail['lon']
+    country = location_detail['country']
+    if location_status == 200:
+        cprint(
+            f"Great! Checking weather for {city_select},{country}.", "cyan")
+    else:
+        print("Error found, please try again later")
     
     return latitude, longitude
 
@@ -163,14 +160,20 @@ def weather_history(lat, long):
 
 
 def main():
-    city = input("Please enter your city: \n")
-    city_check(city)
+    welcome_message()
+    while True:
+        try:
+            city = input("Please enter your city: \n")
+            city_check(city)
+            break
+        except IndexError:
+            print("Invalid City, please try again")
     latitude, longitude = city_check(city)
     print(f"Please choose an option:\n")
     print(f"1 - View current weather")
     print(f"2 - View weather forecast (up to 8 days)")
     print(f"3 - View past weather")
-    print(f"4 - Exit program")
+    print(f"4 - Restart program")
     key_press = int(input("Please enter your selection: \n"))
     if key_press == 1:
         get_current_weather(latitude, longitude)
@@ -179,14 +182,7 @@ def main():
     elif key_press == 3:
         weather_history(latitude, longitude)
     elif key_press == 4:
-        close = str(input("Are you sure you want to finish? (y/n)\n"))
-        if close == "y":
-            exit()
-        else:
-            print("restarting...")
-    else:
-        print("Error, invalid selection")
+        exit()
 
 
-welcome_message()
 main()
