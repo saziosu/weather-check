@@ -169,20 +169,24 @@ def main():
         except IndexError:
             print("Invalid City, please try again")
     latitude, longitude = city_check(city)
-    print(f"Please choose an option:\n")
-    print(f"1 - View current weather")
-    print(f"2 - View weather forecast (up to 8 days)")
-    print(f"3 - View past weather")
-    print(f"4 - Restart program")
-    key_press = int(input("Please enter your selection: \n"))
-    if key_press == 1:
-        get_current_weather(latitude, longitude)
-    elif key_press == 2:
-        weather_forecast(latitude, longitude)
-    elif key_press == 3:
-        weather_history(latitude, longitude)
-    elif key_press == 4:
-        exit()
+    while True:
+        print(f"\nPlease choose an option:\n")
+        print(f"1 - View current weather")
+        print(f"2 - View weather forecast (up to 8 days)")
+        print(f"3 - View past weather")
+        print(f"4 - Restart program")
+        key_press = int(input("Please enter your selection: \n"))
+        if key_press == 1:
+            get_current_weather(latitude, longitude)
+        elif key_press == 2:
+            weather_forecast(latitude, longitude)
+        elif key_press == 3:
+            weather_history(latitude, longitude)
+        elif key_press == 4:
+            print("\nOkay! Restarting...\n")
+            main()
+        else:
+            print("Invalid selection, please try again\n")
 
 
 main()
