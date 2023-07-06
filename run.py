@@ -37,18 +37,18 @@ forecasted weather.", "green")
 
 
 def city_check(city_select):
-    '''
-    Run's the user's city through the OpenWeather API, returns the 
+    """
+    Runs the user's city through the OpenWeather API, returns the 
     longitude and latitude. Confirms the user's input and checks that the 
     API url returns a 200 response.
-    '''
+    """
     location = requests.get(
-        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
+        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}") # API Request
     location_status = location.status_code
     location_detail = location.json()[0]
-    latitude = location_detail['lat']
-    longitude = location_detail['lon']
-    country = location_detail['country']
+    latitude = location_detail["lat"]
+    longitude = location_detail["lon"]
+    country = location_detail["country"]
     if location_status == 200:
         cprint(
             f"Great! Checking weather for {city_select},{country}.", "cyan")
@@ -62,23 +62,24 @@ def get_current_weather(lat, long):
     Function to get the current weather of the city chosen by the user.
     Prints details of main weather, temperature and humidity
     """
-    weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}")
-    weather_data = weather.json()
-    sky = weather_data['weather'][0]['description']
-    current_temp_k = weather_data['main']['temp']
+    weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}") # API request
+    weather_data = weather.json() # Print API in JSON
+    sky = weather_data["weather"][0]["description"]
+    current_temp_k = weather_data["main"]["temp"]
     current_temp_c = round(current_temp_k - 273.15) # converts the temperature in kelvins to celius
-    feels_k = weather_data['main']['feels_like']
+    feels_k = weather_data["main"]["feels_like"]
     feels_c = round(feels_k - 273.15)
-    hum = weather_data['main']['humidity']
+    hum = weather_data["main"]["humidity"]
     # Sunrise & Sunset times are converted to city's local time
     sunrise = datetime.fromtimestamp(
-        weather_data['sys']['sunrise'] + weather_data['timezone'])
+        weather_data["sys"]["sunrise"] + weather_data["timezone"])
     sunset = datetime.fromtimestamp(
-        weather_data['sys']['sunset'] + weather_data['timezone'])
-    wind_speed = weather_data['wind']['speed']
-    clouds = weather_data['clouds']['all']
+        weather_data["sys"]["sunset"] + weather_data["timezone"])
+    wind_speed = weather_data["wind"]["speed"]
+    clouds = weather_data["clouds"]["all"]
+    # Details printed to the user
     cprint(f"Current weather:\n", "light_blue")
-    if sky == 'clear sky':
+    if sky == "clear sky":
         print(f"Today you have a lovely {sky}")
     else:
         print(f"Today you have some {sky}")
@@ -105,12 +106,13 @@ def weather_forecast(lat, long):
     print(f"Example: For tomorrow's forecast type 1.")
     fore_day_select = int(input("Make your selection:\n"))
     forecast_check = requests.get(
-        f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}")
-    forecast_data = forecast_check.json()
+        f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}") # API Request
+    forecast_data = forecast_check.json() # Print API response in JSON
     forecast_day = forecast_data["daily"][fore_day_select]
     forecast_date = datetime.fromtimestamp(
-        forecast_day['dt'] + forecast_data["timezone_offset"])
+        forecast_day["dt"] + forecast_data["timezone_offset"])
     forecast_summary = forecast_day["summary"]
+    # convert all temps to celsius
     for time, temp in forecast_day["temp"].items():
         forecast_day["temp"][time] = round(temp - 273.15)
     morning_temp_c = forecast_day["temp"]["morn"]
@@ -154,9 +156,9 @@ def weather_history(lat, long):
     past_temp_c = round(past_data_list["temp"] - 273.15)
     past_hum = past_data_list["humidity"]
     past_sunrise = datetime.fromtimestamp(
-        past_data_list["sunrise"] + past_data['timezone_offset'])
+        past_data_list["sunrise"] + past_data["timezone_offset"])
     past_sunset = datetime.fromtimestamp(
-        past_data_list["sunset"] + past_data['timezone_offset'])
+        past_data_list["sunset"] + past_data["timezone_offset"])
     print(f"\nOn this day there were some {past_main}")
     print(f"Cloud cover was {past_cloud}%")
     print(f"Wind speed was {past_speed}m/s")
