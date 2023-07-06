@@ -109,8 +109,8 @@ def weather_forecast(lat, long):
         f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}") # API Request
     forecast_data = forecast_check.json() # Print API response in JSON
     forecast_day = forecast_data["daily"][fore_day_select]
-    forecast_date = datetime.fromtimestamp(
-        forecast_day["dt"] + forecast_data["timezone_offset"])
+    forecast_date = str(datetime.fromtimestamp(
+        forecast_day["dt"] + forecast_data["timezone_offset"]))[:-8]
     forecast_summary = forecast_day["summary"]
     # convert all temps to celsius
     for time, temp in forecast_day["temp"].items():
@@ -124,7 +124,7 @@ def weather_forecast(lat, long):
     forecast_cloud = forecast_day["clouds"]
     cprint(f"\nChecking forecast for {fore_day_select} day(s) in \
             future\n", "light_yellow")
-    print(f"Date chosen: {forecast_date} (City's local time)")
+    cprint(f"Date chosen: {forecast_date}", "blue")
     print(f"{forecast_summary}")
     print(f"Cloud cover will be {forecast_cloud}%")
     print(f"Wind speed will be {forecast_speed}m/s")
@@ -155,10 +155,10 @@ def weather_history(lat, long):
     past_speed = past_data_list["wind_speed"]
     past_temp_c = round(past_data_list["temp"] - 273.15)
     past_hum = past_data_list["humidity"]
-    past_sunrise = datetime.fromtimestamp(
-        past_data_list["sunrise"] + past_data["timezone_offset"])
-    past_sunset = datetime.fromtimestamp(
-        past_data_list["sunset"] + past_data["timezone_offset"])
+    past_sunrise = str(datetime.fromtimestamp(
+        past_data_list["sunrise"] + past_data["timezone_offset"]))[-8:]
+    past_sunset = str(datetime.fromtimestamp(
+        past_data_list["sunset"] + past_data["timezone_offset"]))[-8:]
     print(f"\nOn this day there were some {past_main}")
     print(f"Cloud cover was {past_cloud}%")
     print(f"Wind speed was {past_speed}m/s")
