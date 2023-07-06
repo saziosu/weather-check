@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv, dotenv_values
 import requests
-import time
 from datetime import datetime
 from termcolor import colored, cprint
 import displays
@@ -24,6 +23,10 @@ timemachine?")
 
 
 def welcome_message():
+    """
+    Welcomes the user, gives description of the image.
+    Displays ascii art to the user.
+    """
     cprint(displays.TITLE, "blue")
     cprint(displays.UMBRELLA, "yellow")
     cprint(f"\nWelcome to Weather Check!\n", "green")
@@ -35,8 +38,9 @@ forecasted weather.", "green")
 
 def city_check(city_select):
     '''
-    Checks the validity of the User's input and pulls the
-    latitude and longitude from their city input to return
+    Run's the user's city through the OpenWeather API, returns the 
+    longitude and latitude. Confirms the user's input and checks that the 
+    API url returns a 200 response.
     '''
     location = requests.get(
         f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
@@ -62,10 +66,11 @@ def get_current_weather(lat, long):
     weather_data = weather.json()
     sky = weather_data['weather'][0]['description']
     current_temp_k = weather_data['main']['temp']
-    current_temp_c = round(current_temp_k - 273.15)
+    current_temp_c = round(current_temp_k - 273.15) # converts the temperature in kelvins to celius
     feels_k = weather_data['main']['feels_like']
     feels_c = round(feels_k - 273.15)
     hum = weather_data['main']['humidity']
+    # Sunrise & Sunset times are converted to city's local time
     sunrise = datetime.fromtimestamp(
         weather_data['sys']['sunrise'] + weather_data['timezone'])
     sunset = datetime.fromtimestamp(
