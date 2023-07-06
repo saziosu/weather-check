@@ -173,7 +173,7 @@ def main():
             city_check(city)
             break
         except IndexError:
-            print("Invalid City, please try again")
+            cprint("Invalid City, please try again", "red")
     latitude, longitude = city_check(city)
     while True:
         print(f"\nPlease choose an option:\n")
@@ -192,7 +192,7 @@ def main():
             print("\nOkay! Restarting...\n")
             main()
         else:
-            print("Invalid selection, please try again\n")
+            cprint("Invalid selection, please try again\n", "red")
 
 
 welcome_message()
