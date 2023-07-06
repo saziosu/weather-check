@@ -19,14 +19,16 @@ LOCATION_URL_BASE = "http://api.openweathermap.org/geo/1.0/direct?q="
 CITY_URL_BASE = "https://api.openweathermap.org/data/2.5/weather?"
 FORECAST_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall?"
 FORECAST_EXCLUDE = "&exclude=minutely,hourly,current&appid="
-HISTORY_URL_BASE = "https://api.openweathermap.org/data/3.0/onecall/timemachine?"
+HISTORY_URL_BASE = ("https://api.openweathermap.org/data/3.0/onecall/\
+timemachine?")
 
 
 def welcome_message():
     cprint(displays.TITLE, "blue")
     cprint(displays.UMBRELLA, "yellow")
     cprint(f"\nWelcome to Weather Check!\n", "green")
-    cprint(f"Weather Check is an app to check the current, past and forecasted weather.", "green")
+    cprint(f"Weather Check is an app to check the current, past and \
+forecasted weather.", "green")
     cprint(f"Past weather data can be checked up to 8 days", "green")
     cprint(f"Weather forecast data can be checked from 01/01/1979.\n", "green")
 
@@ -48,7 +50,6 @@ def city_check(city_select):
             f"Great! Checking weather for {city_select},{country}.", "cyan")
     else:
         print("Error found, please try again later")
-    
     return latitude, longitude
 
 
@@ -114,7 +115,8 @@ def weather_forecast(lat, long):
     forecast_hum = forecast_day["humidity"]
     forecast_speed = forecast_day["wind_speed"]
     forecast_cloud = forecast_day["clouds"]
-    cprint(f"\nChecking forecast for {fore_day_select} day(s) in future\n", "light_yellow")
+    cprint(f"\nChecking forecast for {fore_day_select} day(s) in \
+            future\n", "light_yellow")
     print(f"Date chosen: {forecast_date} (City's local time)")
     print(f"{forecast_summary}")
     print(f"Cloud cover will be {forecast_cloud}%")
