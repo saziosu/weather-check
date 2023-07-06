@@ -122,6 +122,7 @@ def weather_forecast(lat, long):
     forecast_hum = forecast_day["humidity"]
     forecast_speed = forecast_day["wind_speed"]
     forecast_cloud = forecast_day["clouds"]
+    # Prints weather data to the user
     cprint(f"\nChecking forecast for {fore_day_select} day(s) in \
             future\n", "light_yellow")
     cprint(f"Date chosen: {forecast_date}", "blue")
@@ -141,6 +142,9 @@ def weather_forecast(lat, long):
 
 
 def weather_history(lat, long):
+    """
+    Gets the past weather details for the user's selected date.
+    """
     cprint("\nYou can check past weather from 01/01/1979!", "light_green")
     cprint("Date format must be DD/MM/YYYY\n", "light_green")
     past_date = input("What date would you like to check the weather?\n")
@@ -159,6 +163,7 @@ def weather_history(lat, long):
         past_data_list["sunrise"] + past_data["timezone_offset"]))[-8:]
     past_sunset = str(datetime.fromtimestamp(
         past_data_list["sunset"] + past_data["timezone_offset"]))[-8:]
+    # prints past weather data to the user
     print(f"\nOn this day there were some {past_main}")
     print(f"Cloud cover was {past_cloud}%")
     print(f"Wind speed was {past_speed}m/s")
@@ -169,32 +174,41 @@ def weather_history(lat, long):
 
 
 def main():
+    """
+    Asks the user to input the city to be used by the app
+    Gives navigation to the user
+    """
     while True:
+        # Requests user's city input and confirms validity
         try:
             city = input("Please enter your city: \n")
             city_check(city)
             break
         except IndexError:
             cprint("Invalid City, please try again", "red")
-    latitude, longitude = city_check(city)
+    latitude, longitude = city_check(city) # convert return tuple into variables
+    # Loop all options after each selection
     while True:
         print(f"\nPlease choose an option:\n")
         print(f"1 - View current weather")
         print(f"2 - View weather forecast (up to 8 days)")
         print(f"3 - View past weather")
         print(f"4 - Choose a new city")
-        key_press = int(input("Please enter your selection: \n"))
-        if key_press == 1:
-            get_current_weather(latitude, longitude)
-        elif key_press == 2:
-            weather_forecast(latitude, longitude)
-        elif key_press == 3:
-            weather_history(latitude, longitude)
-        elif key_press == 4:
-            print("\nOkay! Restarting...\n")
-            main()
-        else:
-            cprint("Invalid selection, please try again\n", "red")
+        try:
+            key_press = int(input("Please enter your selection: \n"))
+            if key_press == 1:
+                get_current_weather(latitude, longitude)
+            elif key_press == 2:
+                weather_forecast(latitude, longitude)
+            elif key_press == 3:
+                weather_history(latitude, longitude)
+            elif key_press == 4:
+                print("\nOkay! Restarting...\n")
+                main()
+            else:
+                cprint("Invalid selection, please try again\n", "red")
+        except ValueError:
+            cprint("Selection must be a number. Please try again.", "red")
 
 
 welcome_message()
