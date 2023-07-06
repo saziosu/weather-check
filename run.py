@@ -160,7 +160,6 @@ def weather_history(lat, long):
 
 
 def main():
-    welcome_message()
     while True:
         try:
             city = input("Please enter your city: \n")
@@ -174,7 +173,7 @@ def main():
         print(f"1 - View current weather")
         print(f"2 - View weather forecast (up to 8 days)")
         print(f"3 - View past weather")
-        print(f"4 - Restart program")
+        print(f"4 - Choose a new city")
         key_press = int(input("Please enter your selection: \n"))
         if key_press == 1:
             get_current_weather(latitude, longitude)
@@ -189,4 +188,5 @@ def main():
             print("Invalid selection, please try again\n")
 
 
+welcome_message()
 main()
