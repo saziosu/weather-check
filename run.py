@@ -71,10 +71,10 @@ def get_current_weather(lat, long):
     feels_c = round(feels_k - 273.15)
     hum = weather_data["main"]["humidity"]
     # Sunrise & Sunset times are converted to city's local time
-    sunrise = datetime.fromtimestamp(
-        weather_data["sys"]["sunrise"] + weather_data["timezone"])
-    sunset = datetime.fromtimestamp(
-        weather_data["sys"]["sunset"] + weather_data["timezone"])
+    sunrise = str(datetime.fromtimestamp(
+        weather_data["sys"]["sunrise"] + weather_data["timezone"]))[-8:]
+    sunset = str(datetime.fromtimestamp(
+        weather_data["sys"]["sunset"] + weather_data["timezone"]))[-8:]
     wind_speed = weather_data["wind"]["speed"]
     clouds = weather_data["clouds"]["all"]
     # Details printed to the user
