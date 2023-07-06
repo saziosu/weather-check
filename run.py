@@ -134,6 +134,8 @@ def weather_forecast(lat, long):
     print(f"Evening temperature: {eve_temp_c}C")
     print(f"Night temperature: {night_temp_c}C")
     print(f"Humidity will be {forecast_hum}%")
+    # If rain is not present, the API does not report this value.
+    # If statemtent to prevent errors if there is no rain
     if "rain" in forecast_day:
         forecast_rain = forecast_day["rain"]
         print(f"There will be {forecast_rain}mm of rain")
@@ -151,7 +153,7 @@ def weather_history(lat, long):
     past_convert = datetime.strptime(past_date, "%d/%m/%Y")
     past_time = round(datetime.timestamp(past_convert))
     date_call = requests.get(
-        f"{HISTORY_URL_BASE}lat={lat}&lon={long}&dt={past_time}&appid={API}")
+        f"{HISTORY_URL_BASE}lat={lat}&lon={long}&dt={past_time}&appid={API}") # API Request
     past_data = date_call.json()
     past_data_list = past_data["data"][0]
     past_main = past_data_list["weather"][0]["description"]
@@ -208,7 +210,7 @@ def main():
             else:
                 cprint("Invalid selection, please try again\n", "red")
         except ValueError:
-            cprint("Selection must be a number. Please try again.", "red")
+            cprint("Invalid selection. Please try again.", "red")
 
 
 welcome_message()
