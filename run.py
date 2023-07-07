@@ -158,6 +158,24 @@ def weather_forecast(lat, long):
                 print(f"There will be {forecast_rain}mm of rain")
             else:
                 print("There will be 0mm of rain")
+            if "alerts" in forecast_data:
+                alerts = forecast_data["alerts"]
+                cprint("\nCAUTION! Weather Alert!", "red")
+                for alert in range(len(alerts)):
+                    event = alerts[alert]["event"]
+                    alert_start = datetime.fromtimestamp(
+                        alerts[alert]["start"] +
+                        forecast_data["timezone_offset"]
+                    )
+                    alert_end = datetime.fromtimestamp(
+                        alerts[alert]["end"] + forecast_data["timezone_offset"]
+                    )
+                    alert_descrtiption = alerts[alert]["description"]
+                    print(f"Warning: {event}")
+                    print(f"Start: {alert_start} (City's local time)")
+                    print(f"End: {alert_end} (City's local time)")
+                    print(f"\nDescription:\n")
+                    print(f"{alert_descrtiption}\n")
             break
         except (ValueError, IndexError):
             cprint("Invalid selection, please try again.", "red")
