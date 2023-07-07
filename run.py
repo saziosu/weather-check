@@ -43,8 +43,8 @@ def welcome_message():
 
 def city_check(city_select):
     """
-    Runs the user's city through the OpenWeather API, returns the 
-    longitude and latitude. Confirms the user's input and checks that the 
+    Runs the user's city through the OpenWeather API, returns the
+    longitude and latitude. Confirms the user's input and checks that the
     API url returns a 200 response.
     """
     location = requests.get(
