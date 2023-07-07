@@ -158,9 +158,11 @@ def weather_forecast(lat, long):
                 print(f"There will be {forecast_rain}mm of rain")
             else:
                 print("There will be 0mm of rain")
+            # If there is a weather alert, report this to the user.
             if "alerts" in forecast_data:
                 alerts = forecast_data["alerts"]
                 cprint("\nCAUTION! Weather Alert!", "red")
+                # For loop to print all weather alerts to user
                 for alert in range(len(alerts)):
                     event = alerts[alert]["event"]
                     alert_start = datetime.fromtimestamp(
