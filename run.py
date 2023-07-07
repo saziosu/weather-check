@@ -132,9 +132,14 @@ def weather_forecast(lat, long):
     forecast_speed = forecast_day["wind_speed"]
     forecast_cloud = forecast_day["clouds"]
     # Prints weather data to the user
-    cprint(f"\nChecking forecast for {fore_day_select} day(s) in \
-            future\n", "light_yellow")
-    cprint(f"Date chosen: {forecast_date}", "blue")
+    cprint(
+        "{} {}".format(
+            f"\nChecking forecast for {fore_day_select} day(s)",
+            "in the future.\n"
+        ),
+        "light_yellow"
+    )
+    cprint(f"Date chosen: {forecast_date}\n", "blue")
     print(f"{forecast_summary}")
     print(f"Cloud cover will be {forecast_cloud}%")
     print(f"Wind speed will be {forecast_speed}m/s")
