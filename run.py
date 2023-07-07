@@ -163,31 +163,40 @@ def weather_history(lat, long):
     """
     cprint("\nYou can check past weather from 01/01/1979!", "light_green")
     cprint("Date format must be DD/MM/YYYY\n", "light_green")
-    past_date = input("What date would you like to check the weather?\n")
-    past_convert = datetime.strptime(past_date, "%d/%m/%Y")
-    past_time = round(datetime.timestamp(past_convert))
-    date_call = requests.get(
-        f"{HISTORY_URL_BASE}lat={lat}&lon={long}&dt={past_time}&appid={API}")
-    # Set API data to json format
-    past_data = date_call.json()
-    past_data_list = past_data["data"][0]
-    past_main = past_data_list["weather"][0]["description"]
-    past_cloud = past_data_list["clouds"]
-    past_speed = past_data_list["wind_speed"]
-    past_temp_c = round(past_data_list["temp"] - 273.15)
-    past_hum = past_data_list["humidity"]
-    past_sunrise = str(datetime.fromtimestamp(
-        past_data_list["sunrise"] + past_data["timezone_offset"]))[-8:]
-    past_sunset = str(datetime.fromtimestamp(
-        past_data_list["sunset"] + past_data["timezone_offset"]))[-8:]
-    # prints past weather data to the user
-    print(f"\nOn this day there were some {past_main}")
-    print(f"Cloud cover was {past_cloud}%")
-    print(f"Wind speed was {past_speed}m/s")
-    print(f"The temperature was {past_temp_c}C")
-    print(f"The humidity was {past_hum}%")
-    print(f"Sunrise: {past_sunrise} (City's local time)")
-    print(f"Sunset: {past_sunset} (City's local time)")
+    # Validation for date format
+    while True:
+        try:
+            past_date = input(
+                "What date would you like to check the weather?\n"
+            )
+            past_convert = datetime.strptime(past_date, "%d/%m/%Y")
+            past_time = round(datetime.timestamp(past_convert))
+            date_call = requests.get(
+                f"{HISTORY_URL_BASE}lat={lat}&lon={long}"
+                + f"&dt={past_time}&appid={API}")
+            # Set API data to json format
+            past_data = date_call.json()
+            past_data_list = past_data["data"][0]
+            past_main = past_data_list["weather"][0]["description"]
+            past_cloud = past_data_list["clouds"]
+            past_speed = past_data_list["wind_speed"]
+            past_temp_c = round(past_data_list["temp"] - 273.15)
+            past_hum = past_data_list["humidity"]
+            past_sunrise = str(datetime.fromtimestamp(
+                past_data_list["sunrise"] + past_data["timezone_offset"]))[-8:]
+            past_sunset = str(datetime.fromtimestamp(
+                past_data_list["sunset"] + past_data["timezone_offset"]))[-8:]
+            # prints past weather data to the user
+            print(f"\nOn this day there were some {past_main}")
+            print(f"Cloud cover was {past_cloud}%")
+            print(f"Wind speed was {past_speed}m/s")
+            print(f"The temperature was {past_temp_c}C")
+            print(f"The humidity was {past_hum}%")
+            print(f"Sunrise: {past_sunrise} (City's local time)")
+            print(f"Sunset: {past_sunset} (City's local time)")
+            break
+        except (ValueError, KeyError):
+            print("Invalid date format, please try again.")
 
 
 def main():
