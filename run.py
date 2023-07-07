@@ -112,49 +112,55 @@ def weather_forecast(lat, long):
     print("Looks like you're needing the weather forecast!")
     print(f"Please choose how many days in the future you would like to see.")
     print(f"Example: For tomorrow's forecast type 1.")
-    fore_day_select = int(input("Make your selection:\n"))
-    forecast_check = requests.get(
-        f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}")
-    # Set API data to json format
-    forecast_data = forecast_check.json()
-    forecast_day = forecast_data["daily"][fore_day_select]
-    forecast_date = str(datetime.fromtimestamp(
-        forecast_day["dt"] + forecast_data["timezone_offset"]))[:-8]
-    forecast_summary = forecast_day["summary"]
-    # Convert all temps to celsius
-    for time, temp in forecast_day["temp"].items():
-        forecast_day["temp"][time] = round(temp - 273.15)
-    morning_temp_c = forecast_day["temp"]["morn"]
-    day_temp_c = forecast_day["temp"]["day"]
-    eve_temp_c = forecast_day["temp"]["eve"]
-    night_temp_c = forecast_day["temp"]["night"]
-    forecast_hum = forecast_day["humidity"]
-    forecast_speed = forecast_day["wind_speed"]
-    forecast_cloud = forecast_day["clouds"]
-    # Prints weather data to the user
-    cprint(
-        "{} {}".format(
-            f"\nChecking forecast for {fore_day_select} day(s)",
-            "in the future.\n"
-        ),
-        "light_yellow"
-    )
-    cprint(f"Date chosen: {forecast_date}\n", "blue")
-    print(f"{forecast_summary}")
-    print(f"Cloud cover will be {forecast_cloud}%")
-    print(f"Wind speed will be {forecast_speed}m/s")
-    print(f"Morning temperature: {morning_temp_c}C")
-    print(f"Day temperature: {day_temp_c}C")
-    print(f"Evening temperature: {eve_temp_c}C")
-    print(f"Night temperature: {night_temp_c}C")
-    print(f"Humidity will be {forecast_hum}%")
-    # If rain is not present, the API does not report this value.
-    # If statemtent to prevent errors if there is no rain
-    if "rain" in forecast_day:
-        forecast_rain = forecast_day["rain"]
-        print(f"There will be {forecast_rain}mm of rain")
-    else:
-        print("There will be 0mm of rain")
+    while True:
+        try:
+            fore_day_select = int(input("Make your selection:\n"))
+            forecast_check = requests.get(
+                f"{FORECAST_URL_BASE}lat={lat}&lon={long}"
+                + f"{FORECAST_EXCLUDE}{API}")
+            # Set API data to json format
+            forecast_data = forecast_check.json()
+            forecast_day = forecast_data["daily"][fore_day_select]
+            forecast_date = str(datetime.fromtimestamp(
+                forecast_day["dt"] + forecast_data["timezone_offset"]))[:-8]
+            forecast_summary = forecast_day["summary"]
+            # Convert all temps to celsius
+            for time, temp in forecast_day["temp"].items():
+                forecast_day["temp"][time] = round(temp - 273.15)
+            morning_temp_c = forecast_day["temp"]["morn"]
+            day_temp_c = forecast_day["temp"]["day"]
+            eve_temp_c = forecast_day["temp"]["eve"]
+            night_temp_c = forecast_day["temp"]["night"]
+            forecast_hum = forecast_day["humidity"]
+            forecast_speed = forecast_day["wind_speed"]
+            forecast_cloud = forecast_day["clouds"]
+            # Prints weather data to the user
+            cprint(
+                "{} {}".format(
+                    f"\nChecking forecast for {fore_day_select} day(s)",
+                    "in the future.\n"
+                ),
+                "light_yellow"
+            )
+            cprint(f"Date chosen: {forecast_date}\n", "blue")
+            print(f"{forecast_summary}")
+            print(f"Cloud cover will be {forecast_cloud}%")
+            print(f"Wind speed will be {forecast_speed}m/s")
+            print(f"Morning temperature: {morning_temp_c}C")
+            print(f"Day temperature: {day_temp_c}C")
+            print(f"Evening temperature: {eve_temp_c}C")
+            print(f"Night temperature: {night_temp_c}C")
+            print(f"Humidity will be {forecast_hum}%")
+            # If rain is not present, the API does not report this value.
+            # If statemtent to prevent errors if there is no rain
+            if "rain" in forecast_day:
+                forecast_rain = forecast_day["rain"]
+                print(f"There will be {forecast_rain}mm of rain")
+            else:
+                print("There will be 0mm of rain")
+            break
+        except (ValueError, IndexError):
+            cprint("Invalid selection, please try again.", "red")
 
 
 def weather_history(lat, long):
