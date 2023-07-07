@@ -30,8 +30,13 @@ def welcome_message():
     cprint(displays.TITLE, "blue")
     cprint(displays.UMBRELLA, "yellow")
     cprint(f"\nWelcome to Weather Check!\n", "green")
-    cprint(f"Weather Check is an app to check the current, past and \
-forecasted weather.", "green")
+    cprint(
+        "{} {}".format(
+            "Weather Check is an app to check the current,",
+            "past and forecasted weather."
+        ),
+        "green"
+    )
     cprint(f"Past weather data can be checked up to 8 days", "green")
     cprint(f"Weather forecast data can be checked from 01/01/1979.\n", "green")
 
@@ -43,8 +48,9 @@ def city_check(city_select):
     API url returns a 200 response.
     """
     location = requests.get(
-        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}") # API Request
+        f"{LOCATION_URL_BASE}{city_select}&limit=1&appid={API}")
     location_status = location.status_code
+    # Set API data to json format
     location_detail = location.json()[0]
     latitude = location_detail["lat"]
     longitude = location_detail["lon"]
@@ -62,11 +68,13 @@ def get_current_weather(lat, long):
     Function to get the current weather of the city chosen by the user.
     Prints details of main weather, temperature and humidity
     """
-    weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}") # API request
-    weather_data = weather.json() # Print API in JSON
+    weather = requests.get(f"{CITY_URL_BASE}lat={lat}&lon={long}&appid={API}")
+    # Set API data to json format
+    weather_data = weather.json()
     sky = weather_data["weather"][0]["description"]
     current_temp_k = weather_data["main"]["temp"]
-    current_temp_c = round(current_temp_k - 273.15) # converts the temperature in kelvins to celius
+    # Converts the temperature in kelvins to celius
+    current_temp_c = round(current_temp_k - 273.15)
     feels_k = weather_data["main"]["feels_like"]
     feels_c = round(feels_k - 273.15)
     hum = weather_data["main"]["humidity"]
@@ -106,13 +114,14 @@ def weather_forecast(lat, long):
     print(f"Example: For tomorrow's forecast type 1.")
     fore_day_select = int(input("Make your selection:\n"))
     forecast_check = requests.get(
-        f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}") # API Request
-    forecast_data = forecast_check.json() # Print API response in JSON
+        f"{FORECAST_URL_BASE}lat={lat}&lon={long}{FORECAST_EXCLUDE}{API}")
+    # Set API data to json format
+    forecast_data = forecast_check.json()
     forecast_day = forecast_data["daily"][fore_day_select]
     forecast_date = str(datetime.fromtimestamp(
         forecast_day["dt"] + forecast_data["timezone_offset"]))[:-8]
     forecast_summary = forecast_day["summary"]
-    # convert all temps to celsius
+    # Convert all temps to celsius
     for time, temp in forecast_day["temp"].items():
         forecast_day["temp"][time] = round(temp - 273.15)
     morning_temp_c = forecast_day["temp"]["morn"]
@@ -153,7 +162,8 @@ def weather_history(lat, long):
     past_convert = datetime.strptime(past_date, "%d/%m/%Y")
     past_time = round(datetime.timestamp(past_convert))
     date_call = requests.get(
-        f"{HISTORY_URL_BASE}lat={lat}&lon={long}&dt={past_time}&appid={API}") # API Request
+        f"{HISTORY_URL_BASE}lat={lat}&lon={long}&dt={past_time}&appid={API}")
+    # Set API data to json format
     past_data = date_call.json()
     past_data_list = past_data["data"][0]
     past_main = past_data_list["weather"][0]["description"]
