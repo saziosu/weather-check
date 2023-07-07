@@ -203,7 +203,8 @@ def main():
             break
         except IndexError:
             cprint("Invalid City, please try again", "red")
-    latitude, longitude = city_check(city) # convert return tuple into variables
+    # convert return tuple into variables
+    latitude, longitude = city_check(city)
     # Loop all options after each selection
     while True:
         print(f"\nPlease choose an option:\n")
