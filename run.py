@@ -3,6 +3,7 @@ from dotenv import load_dotenv, dotenv_values
 import requests
 from datetime import datetime
 from termcolor import colored, cprint
+from textwrap import TextWrapper
 import displays
 
 """
@@ -173,11 +174,15 @@ def weather_forecast(lat, long):
                         alerts[alert]["end"] + forecast_data["timezone_offset"]
                     )
                     alert_descrtiption = alerts[alert]["description"]
+                    # Wrap text that is too long in terminal
+                    desc_wrapper = TextWrapper(width=75)
+                    alert_desc_wrap = desc_wrapper.wrap(text=alert_descrtiption)
                     print(f"Warning: {event}")
                     print(f"Start: {alert_start} (City's local time)")
                     print(f"End: {alert_end} (City's local time)")
                     print(f"\nDescription:\n")
-                    print(f"{alert_descrtiption}\n")
+                    for alert_line in alert_desc_wrap:
+                        print(f"{alert_line}\n")
             break
         except (ValueError, IndexError):
             cprint("Invalid selection, please try again.", "red")
