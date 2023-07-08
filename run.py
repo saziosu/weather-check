@@ -111,7 +111,13 @@ def weather_forecast(lat, long):
     the forecast for.
     """
     cprint("Looks like you're needing the weather forecast!", "green")
-    cprint(f"Please choose how many days in the future you would like to see.", "green")
+    cprint(
+        "{} {}".format(
+            "Please choose how many days in the ",
+            "future you would like to see."
+        ),
+        "green"
+    )
     cprint(f"Example: For tomorrow's forecast type 1.", "green")
     while True:
         try:
