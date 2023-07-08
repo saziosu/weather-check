@@ -110,9 +110,9 @@ def weather_forecast(lat, long):
     User can choose how many days in the future they would like to see
     the forecast for.
     """
-    print("Looks like you're needing the weather forecast!")
-    print(f"Please choose how many days in the future you would like to see.")
-    print(f"Example: For tomorrow's forecast type 1.")
+    cprint("Looks like you're needing the weather forecast!", "green")
+    cprint(f"Please choose how many days in the future you would like to see.", "green")
+    cprint(f"Example: For tomorrow's forecast type 1.", "green")
     while True:
         try:
             fore_day_select = int(input("Make your selection:\n"))
