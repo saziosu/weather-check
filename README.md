@@ -40,31 +40,73 @@ It provides information on current, past and forecasted weather.
 
 [Miro](https://miro.com/) was used for planning the project
 
-![Miro flowchart image](https://res.cloudinary.com/dygj0wxf0/image/upload/v1688408322/miro-screenshot_b3yvul.png)
+![Miro flowchart image 1](readme-images/miro.png)
+![Miro flowchart image 2](readme-images/miro-2.png)
+
+## Colors
+
+[Termcolor](https://pypi.org/project/termcolor/) was used to introduce colors into the terminal project to add better readability.
+
+* Green was used for informational messages, such as the welcome message and date requirements or past weather
+* Yellow was used on text confirming the date.
+* Red was used on errors and weather alert warnings to promote a sense of urgency.
 
 # Features 
 
 ## Current Features
 
-### Feature One
+### Welcome Message
 
-FEATURE ONE
-IMAGE
+![welcome message](readme-images/welcome-message.png)
 
-### Feature Two
+The welcome message uses ascii art to personalise the app.
+It uses a title and an umbrella ascii image.
+The welcome message allows the user to understand the purpose of the app, and asks them to enter their city.
+If an invalid city is added, the user is asked to enter a valid city.
 
-FEATURE TWO
-IMAGE
+### App options
 
-### FEATURE THREE
+![city confirmation](readme-images/weather-options.png)
 
-IMAGE
-FEATURE
+The app will confirm the user's city and print the corresponding country code. 
+This gives the user confirmation that the app is checking the correct city.
+The app then provides four options; current weather, forecasted weather, past weather and enter a new city.
+The options also give a key on how to select them.
+After each selection is chosen, the user will see the options again to choose a new request or start the process with a new city.
 
-### FEATURE FOUR
+### Current Weather
 
-IMAGE
-FEATURE
+![current weather image](readme-images/current-weather.png)
+
+The current weather is selected by entering 1 into the options.
+This provides current weather information to the user, including sunrise and sunset times based on the city's local time.
+
+### Weather Forecast
+
+![weather forecast](readme-images/weather-forecast.png)
+
+The weather forecast is selected by entering 2 into the options.
+The user is then asked to enter how many days in the future they would like to see the forecast for.
+The app will then confirm the date that it is showing the forecast for.
+If there is a weather alert, this will display on this page:
+
+![weather alert](readme-images/weather-alert.png)
+
+### Past Weather
+
+![Past weather](readme-images/past-weather.png)
+
+The past weather is selected by entering 3 into the options.
+The user is then asked to enter the date they would like to check the weather for.
+The user can choose a date from 01/01/1979.
+The date must be the format of DD/MM/YYYY, if the user enters an incorrect format or date and error will be shown.
+
+### New City
+
+![New City](readme-images/new-city.png)
+
+A new city can be checked by entering 4 into the options.
+The app will confirm that the service is restarting and they are asked to enter a new city to run through the app.
 
 ## Future Features
 
