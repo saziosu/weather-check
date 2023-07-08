@@ -91,7 +91,7 @@ This provides current weather information to the user, including sunrise and sun
 
 ### Weather Forecast
 
-![weather forecast](readme-images/weather-forecast.png)
+![weather forecast](readme-images/valid-forecast.png)
 
 The weather forecast is selected by entering 2 into the options.
 The user is then asked to enter how many days in the future they would like to see the forecast for.
