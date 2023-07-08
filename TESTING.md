@@ -59,10 +59,21 @@ Updated the code to resolve these errors and it passed through the linter with n
 
 ## Known Bugs
 
-KNOWN BUGS TABLE
+### City Confirmation
+
+When the user enters their city, the data prints twice.
+
+![City input bug](readme-images/city-bug.png)
 
 ## Fixed bugs
 
-FIXED BUGS TABLE
+| **Bug Presented**                                                                                 | **Fix**                                                                                                                                                             |
+|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| City validation was continuing to lead to errors through the rest of the functions                | Added a while loop with a try & except to catch these errors before moving to the next function.                                                                    |
+| In the weather_forecast function, the function would error out if there was not rain on that day. | The API only provided rain data if rain was forecasted for that day, added an if statement to only print the rain variable if rain was expected on the chosen date. |
+| Long lines                                                                                        | Some long string lines were giving issues with shortening them. Used a format string to resolve these line errors.                                                  |
+
+
+
 
 [Top](#weather-check--testing)
