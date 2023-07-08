@@ -162,15 +162,18 @@ Heroku was used to deploy this site:
 ## Code
 
 * [NeuralNine](https://www.youtube.com/watch?v=9P5MY_2i7K8), I used this tutorial to help me with starting up and utilising the OpenWeather API.
+* [NeuralNine](https://www.youtube.com/watch?v=8dlQ_nDE7dQ), I used this tutorial to help with loading environment variables.
 * [GeeksForGeeks](https://www.geeksforgeeks.org/convert-date-string-to-timestamp-in-python/), I used this resource to help convert date strings into timestamps to use in the API calls
+* [GeeksForGeeks](https://www.geeksforgeeks.org/how-to-convert-timestamp-string-to-datetime-object-in-python/), I used this resource to help convert timestamps to dates and times to be printed to the user.
+* [GeeksForGeeks](https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/), I used this resource to help implement the textwrap feature on weather alerts in the forecasted weather option.
 * [Programiz](https://www.programiz.com/python-programming/datetime/timestamp-datetime), also used this resource to help convert dates into timestamps.
 * [StackOverflow](https://stackoverflow.com/questions/69757549/how-do-i-make-a-function-execute-when-a-certain-key-is-pressed), used this resource to help the user select which function they want to run.
+* [Eyehunts](https://tutorial.eyehunts.com/python/python-import-variable-from-another-file-example-code/), used this resource to help display the ascii art variables from the displays.py file.
+
 
 ## Media
 
-* Media
-* Credits
-* Here
+* [Ascii Art Archive](https://www.asciiart.eu/), the ascii art used in the welcome message was sourced from this archive.
 
 # Acknowledgements
 
