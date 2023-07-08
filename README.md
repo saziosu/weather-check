@@ -110,15 +110,9 @@ The app will confirm that the service is restarting and they are asked to enter 
 
 ## Future Features
 
-* A few
-* Future
-* Features
-
-## Accessibility
-
-* Accessibility
-* Considerations
-* Here
+* When my skills have furthered it would be nice to be able to enter different date patterns into the past_weather function, such as 01.01.01 to give users more flexibility.
+* It would be nice in future to store the weather data and city, and allow the user to map out a journey from City A to City B and check if there are any potential weather warnings or alerts to consider.
+* Higher tier plans on the OpenWeather API allow for calls to check the road risk. It could be nice in future to include this to allow the user to check their safety in a given location.
 
 # Technology Used
 
@@ -128,9 +122,12 @@ The app will confirm that the service is restarting and they are asked to enter 
 
 ## Frameworks, Libraries & Programs 
 
-* [Python Requests](https://pypi.org/project/requests/)
-* [Python Dotenv](https://pypi.org/project/python-dotenv/)
-* [Python Termcolor](https://pypi.org/project/termcolor/)
+* [OS][https://docs.python.org/3/library/os.html] was used for importing the OpenWeather API key via environment variables.
+* [Dotenv](https://pypi.org/project/python-dotenv/) was used for importing the OpenWeather API key via environment variables.
+* [Requests](https://pypi.org/project/requests/) was used to call the OpenWeather API throughout the project.
+* [Datetime](https://pypi.org/project/DateTime/) was used to extract a timestamp to be used by the OpenWeather API from a date entered into the program, and to print a human-readable date from a timestamp to the user from the API.
+* [Termcolor](https://pypi.org/project/termcolor/) was used to introduce color to the terminal.
+* [TextWrap](https://docs.python.org/3/library/textwrap.html) was used to wrap text within the terminal, to allow for better readability by not allowing words to split up at line breaks.
 
 # Deployment & Development
 
