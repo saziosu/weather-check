@@ -55,7 +55,7 @@ The project aims to give clear feedback and several options to give the user a w
 
 [Termcolor](https://pypi.org/project/termcolor/) was used to introduce colors into the terminal project to add better readability.
 
-* Green was used for informational messages, such as the welcome message and date requirements or past weather
+* Green was used for informational messages, such as the welcome message and date requirements for past weather
 * Yellow was used on text confirming the date.
 * Red was used on errors and weather alert warnings to promote a sense of urgency.
 
