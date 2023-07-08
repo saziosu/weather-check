@@ -122,7 +122,7 @@ The app will confirm that the service is restarting and they are asked to enter 
 
 ## Frameworks, Libraries & Programs 
 
-* [OS][https://docs.python.org/3/library/os.html] was used for importing the OpenWeather API key via environment variables.
+* [OS](https://docs.python.org/3/library/os.html) was used for importing the OpenWeather API key via environment variables.
 * [Dotenv](https://pypi.org/project/python-dotenv/) was used for importing the OpenWeather API key via environment variables.
 * [Requests](https://pypi.org/project/requests/) was used to call the OpenWeather API throughout the project.
 * [Datetime](https://pypi.org/project/DateTime/) was used to extract a timestamp to be used by the OpenWeather API from a date entered into the program, and to print a human-readable date from a timestamp to the user from the API.
@@ -177,4 +177,6 @@ Heroku was used to deploy this site:
 
 # Acknowledgements
 
-* Thanks y'all!
+* Marcel, mentor, for all the help and advice throughout the project.
+* Course Facilitator Alan for all the helpful tips and tricks, and great guidance throughout the project.
+* My cohort classmates for feedback during our standups.
