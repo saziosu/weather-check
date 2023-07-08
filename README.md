@@ -28,13 +28,16 @@ Link for the finished deployed site: [Weather Check](https://weather-check-e66ed
 # User Experience
 
 The aim of this project is to provide the user with accurate weather information based on the user's selection of the city.
-It provides information on current, past and forecasted weather.
+The project aims to give clear feedback and several options to give the user a well-rounded experience.
 
 ## User Stories
 
-* As a first time User, we want to understand immediately what information is required from us to run the app effectively.
-  
-* As a returning User, we want to be able to input a new city to check the weather for any location we wish to see weather information for.
+* As a user, I want to immediately understand what the purpose of the program is.
+* As a user, I want to be able to easily navigate the different options offered by the program.
+* As a user, I want to receive clear feedback from my interactions with the program.
+* As a user, I want to be given the opportuinity to correct my input if an error occurs.
+* As a user, I want to be able to navigate all options of the app without having to re-run the program.
+* As a user, I want to be able to enter a new city into the program to check the a different location easily.
 
 ## Planning
 
