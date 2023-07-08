@@ -173,10 +173,10 @@ def weather_forecast(lat, long):
                     alert_end = datetime.fromtimestamp(
                         alerts[alert]["end"] + forecast_data["timezone_offset"]
                     )
-                    alert_descrtiption = alerts[alert]["description"]
+                    alert_description = alerts[alert]["description"]
                     # Wrap text that is too long in terminal
                     desc_wrapper = TextWrapper(width=75)
-                    alert_desc_wrap = desc_wrapper.wrap(text=alert_descrtiption)
+                    alert_desc_wrap = desc_wrapper.wrap(text=alert_description)
                     print(f"Warning: {event}")
                     print(f"Start: {alert_start} (City's local time)")
                     print(f"End: {alert_end} (City's local time)")
