@@ -15,7 +15,7 @@ Link for the finished deployed site: [Weather Check](https://weather-check-e66ed
 * [Features](#features)
     * [Current Features](#current-features)
         * [Welcome Message](#welcome-message)
-        * [App Options](#app-options)
+        * [Navigation](#navigation)
         * [Current Weather](#current-weather)
         * [Weather Forecast](#weather-forecast)
         * [Past Weather](#past-weather)
@@ -38,7 +38,7 @@ The project aims to give clear feedback and several options to give the user a w
 
 ## User Stories
 
-* As a user, I want to immediately understand what the purpose of the program is and how to navigate through it.
+* As a user, I want to immediately understand what the purpose of the program is and easily navigate through it.
 * As a user, I want to receive clear feedback from my interactions with the program.
 * As a user, I want to be given the opportunity to correct my input if an error occurs.
 * As a user, I want to be able to navigate all options of the app without having to re-run the program.
@@ -72,7 +72,7 @@ It uses a title and an umbrella ascii image.
 The welcome message allows the user to understand the purpose of the app, and asks them to enter their city.
 If an invalid city is added, the user is asked to enter a valid city.
 
-### App options
+### Navigation
 
 ![city confirmation](readme-images/weather-options.png)
 
