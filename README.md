@@ -2,7 +2,7 @@
 Weather Check is a python app for checking current, past and weather forecast.
 This project utilises the OpenWeather API for accurate weather readings from your chosen city.
 
-[image here]
+![Project Overview Image](readme-images/overview.png)
 
 Link for the finished deployed site: [Weather Check](https://weather-check-e66ed6c3dc9b.herokuapp.com/)
 
@@ -10,20 +10,26 @@ Link for the finished deployed site: [Weather Check](https://weather-check-e66ed
 
 * [User Experience](#user-experience)
     * [User Stories](#user-stories)
-    * [Wireframes](#wireframes)
+    * [Flowchart](#flowchart)
+    * [Colors](#colors)
 * [Features](#features)
     * [Current Features](#current-features)
+        * [Welcome Message](#welcome-message)
+        * [App Options](#app-options)
+        * [Current Weather](#current-weather)
+        * [Weather Forecast](#weather-forecast)
+        * [Past Weather](#past-weather)
+        * [New City](#new-city)
     * [Future Features](#future-features)
-    * [Accessibility](#accessibility)
 * [Technology Used](#technology-used)
     * [Languages](#languages)
     * [Frameworks, Libraries & Programs](#frameworks-libraries--programs)
-* [Deployment](#deployment)
+* [Deployment & Development](#deployment--development)
 * [Testing](#testing)
 * [Credits](#credits)
     * [Code](#code)
     * [Media](#media)
-    * [Acknowledgements](#acknowledgements)
+* [Acknowledgements](#acknowledgements)
 
 # User Experience
 
@@ -39,7 +45,7 @@ The project aims to give clear feedback and several options to give the user a w
 * As a user, I want to be able to navigate all options of the app without having to re-run the program.
 * As a user, I want to be able to enter a new city into the program to check the a different location easily.
 
-## Planning
+## Flowchart
 
 [Miro](https://miro.com/) was used for planning the project
 
