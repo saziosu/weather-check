@@ -227,7 +227,7 @@ def weather_history(lat, long):
             print(f"Sunset: {past_sunset} (City's local time)")
             break
         except (ValueError, KeyError):
-            print("Invalid date format, please try again.", "red")
+            cprint("Invalid date format, please try again.", "red")
 
 
 def main():
