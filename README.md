@@ -38,10 +38,9 @@ The project aims to give clear feedback and several options to give the user a w
 
 ## User Stories
 
-* As a user, I want to immediately understand what the purpose of the program is.
-* As a user, I want to be able to easily navigate the different options offered by the program.
+* As a user, I want to immediately understand what the purpose of the program is and how to navigate through it.
 * As a user, I want to receive clear feedback from my interactions with the program.
-* As a user, I want to be given the opportuinity to correct my input if an error occurs.
+* As a user, I want to be given the opportunity to correct my input if an error occurs.
 * As a user, I want to be able to navigate all options of the app without having to re-run the program.
 * As a user, I want to be able to enter a new city into the program to check the a different location easily.
 
