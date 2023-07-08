@@ -1,4 +1,4 @@
-# PROJECT-NAME | Testing
+# Weather Check | Testing
 
 Weather Check is a python app for checking current, past and weather forecast.
 This project utilises the OpenWeather API for accurate weather readings from your chosen city.
@@ -36,7 +36,7 @@ Updated the code to resolve these errors and it passed through the linter with n
 
 ## User Testing
 
-| Goal                                                                                                           | Achieved                                                                                                                                                                           |
+| **Goal**                                                                                                       | **Achieved**                                                                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | As a user, I want to immediately understand what the purpose of the program is and easily navigate through it. | A welcome message displays on the initial run of the program, which explains the purpose of the program and the data it can provide, such as current, past and forecasted weather. |
 | As a user, I want to receive clear feedback from my interactions with the program.                             | When the user inputs their data, the program gives feedback to the user confirming their choice or providing an error if the input is invalid.                                     |
@@ -44,22 +44,19 @@ Updated the code to resolve these errors and it passed through the linter with n
 | As a user, I want to be able to navigate all options of the app without having to re-run the program.          | After each option is run, e.g. the current weather, all options are displayed again so that the user can see the other data for their selected city.                               |
 | As a user, I want to be able to enter a new city into the program to check the a different location easily.    | After each option is run, the user has the option to enter a new city into the program to check the data for a different area.                                                     |
 
-# Full Testing
+## Full Testing
 
-A range of devices were used to test the site.
-
-* OnePlus 7T Pro (Firefox, chrome, opera)
-* MAC: MacBook Pro 14-inch 2021 (Mac OS Ventura 13.4) (Chrome, Safari, Firefox)
-* LENOVO Tab P11 11.5" Tablet (Chrome, Firefox)
-
-[Browserstack](https://www.browserstack.com/) was also used to test on the following devices:
-
-* iPhone 14 (Chrome, Safari)
-* iPhone 12 mini (Chrome, Safari)
-* Samsung s23 (Chrome, Firefox)
-* iPad 10th (Chrome, Safari)
-
-MANUAL TESTING DETAILS
+| **Feature**      | **Outcome**                           | **Example**          | **Pass/Fail** |
+|------------------|---------------------------------------|----------------------|---------------|
+| Welcome Message  | Validate user input                   | ![invalid city input](readme-images/invalid-city.png)   | Pass          |
+| Welcome Message  | Confirm Country code to user          | ![valid city input](readme-images/valid-city.png)     | Pass          |
+| Navgation        | Validate user input                   | ![invalid navigation](readme-images/invalid_select.png)    | Pass          |
+| Navigation       | Show navigation after each selection  | ![Navigation displayed](readme-images/navigation-after-run.png)            | Pass          |
+| Current Weather  | Output weather data from API          | ![Current Weather](readme-images/current-weather-test.png)      | Pass          |
+| Weather Forecast | Validate user input                   | ![Forecast validation](readme-images/invalid-forecast.png)     | Pass          |
+| Weather Forecast | Confirm date selected to user         | ![Confirm forecast date](readme-images/valid-forecast.png)       | Pass          |
+| Past Weather     | Validate User Input                   | ![Past weather validation](readme-images/invalid-date.png) | Pass          |
+| New City         | Allow user to enter new city          | ![New city input](readme-images/new-input.png)             | Pass          |
 
 # Bugs
 
