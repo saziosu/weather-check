@@ -122,6 +122,9 @@ The app will confirm that the service is restarting and they are asked to enter 
 
 ## Frameworks, Libraries & Programs 
 
+* [CodeAnywhere](https://codeanywhere.com/) was used to write code, commit and push to GitHub.
+* [GitHub](https://github.com/) was used to store the project code after pushing.
+* [Heroku](https://www.heroku.com/) was used to deploy the site.
 * [OS](https://docs.python.org/3/library/os.html) was used for importing the OpenWeather API key via environment variables.
 * [Dotenv](https://pypi.org/project/python-dotenv/) was used for importing the OpenWeather API key via environment variables.
 * [Requests](https://pypi.org/project/requests/) was used to call the OpenWeather API throughout the project.
