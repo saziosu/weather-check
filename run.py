@@ -38,8 +38,8 @@ def welcome_message():
         ),
         "green"
     )
-    cprint(f"Past weather data can be checked up to 8 days", "green")
-    cprint(f"Weather forecast data can be checked from 01/01/1979.\n", "green")
+    cprint(f"Weather Forecast can be checked up to 8 days", "green")
+    cprint(f"Past weather data can be checked from 01/01/1979.\n", "green")
 
 
 def city_check(city_select):
