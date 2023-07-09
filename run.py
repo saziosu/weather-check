@@ -168,7 +168,7 @@ def weather_forecast(lat, long):
             # If there is a weather alert, report this to the user.
             if "alerts" in forecast_data:
                 alerts = forecast_data["alerts"]
-                cprint("\nCAUTION! Weather Alert!", "red")
+                cprint("\nCAUTION! Weather Alert this week!", "red")
                 # For loop to print all weather alerts to user
                 for alert in range(len(alerts)):
                     event = alerts[alert]["event"]
