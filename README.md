@@ -153,16 +153,23 @@ The app will confirm that the service is restarting and they are asked to enter 
 ## Deploy to Heroku
 Heroku was used to deploy this site:
 
-1. Login (or signup) to Heroku with GitHub
-2. Navigate to the [apps page](https://dashboard.heroku.com/apps)
-3. Click the 'new' button in the top right corner and create new app.
-4. Choose an app name and select your region.
-4. Navigate to the settings page for the app.
-5. Under Buildpacks add NodeJS and Python
-6. Reveal config vars and add your API key credentials
-7. Navigate to the deploys section of the app.
-8. Select deploy with github and connect the appropriate repo.
-9. Click deploy, or select automatic deployment.
+1. Run pip3 freeze > requirements.txt in the console to set up the requirements.txt file. This command will create the file if it does not already exist.
+2. Commit any changes and push to GitHub.
+3. Navigate to Heroku's website and log in to the dashboard.
+4. Click on "Create new app" in the top right.
+5. Enter the "App name" and select your region, then click "Create App". 
+6. Head to the Settings tab in the new app.
+7. Go to "Config Vars" under the Settings tab.
+8. Click on "Reveals Config Vars".
+9. Add the "API_KEY" key and credentials from the OpenWeather API value to the config vars.
+10. Add "PORT" key and "8000" value to the config vars.
+11. Move down to the "Buildpacks" section and click "Add buildpack".
+12. Select "python" and click "Add Buildpack"
+13. Add "nodejs" buildpack and click "Add Buildpack"
+14. Move to the "deploy" tab on the app, and scroll down to the deployment method section.
+15. Select "GitHub" and connect to GitHub.
+16. Search for the appropriate GitHub repo and Connect.
+17. Select "Automatic deploys" or "Manual deploys" to deploy your application.
 
 # Testing
 
