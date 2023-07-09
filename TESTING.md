@@ -65,6 +65,9 @@ When the user enters their city, the data prints twice.
 
 ![City input bug](readme-images/city-bug.png)
 
+Initially proposed that the double print was a result of the length of time it takes to pull the data from the API.
+Added several timeouts to the code blocks to allow this to print once, however the print continued to display twice.
+
 ## Fixed bugs
 
 | **Bug Presented**                                                                                 | **Fix**                                                                                                                                                             |

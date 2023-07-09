@@ -245,12 +245,11 @@ def main():
         # Requests user's city input and confirms validity
         try:
             city = input("Please enter your city: \n")
-            city_check(city)
+            # convert return tuple into variables
+            latitude, longitude = city_check(city)
             break
         except IndexError:
             cprint("Invalid City, please try again", "red")
-    # convert return tuple into variables
-    latitude, longitude = city_check(city)
     # Loop all options after each selection
     while True:
         print(f"\nPlease choose an option:\n")
