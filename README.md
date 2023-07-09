@@ -130,6 +130,7 @@ The app will confirm that the service is restarting and they are asked to enter 
 
 ## Frameworks, Libraries & Programs 
 
+* [OpenWeather](https://openweathermap.org/api) provided the API providing the weather information
 * [CodeAnywhere](https://codeanywhere.com/) was used to write code, commit and push to GitHub.
 * [GitHub](https://github.com/) was used to store the project code after pushing.
 * [Heroku](https://www.heroku.com/) was used to deploy the site.
@@ -176,6 +177,10 @@ Heroku was used to deploy this site:
 [TESTING.md](TESTING.md)
 
 # Credits
+
+## Content
+
+* [OpenWeather](https://openweathermap.org/api), was the API used to generate the weather content for the user's city.
 
 ## Code
 
