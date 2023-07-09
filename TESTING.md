@@ -52,7 +52,10 @@ Updated the code to resolve these errors and it passed through the linter with n
 | Current Weather  | Output weather data from API          | ![Current Weather](readme-images/current-weather-test.png)      | Pass          |
 | Weather Forecast | Validate user input                   | ![Forecast validation](readme-images/invalid-forecast.png)     | Pass          |
 | Weather Forecast | Confirm date selected to user         | ![Confirm forecast date](readme-images/valid-forecast.png)       | Pass          |
+| Weather Forecast | Provide forecasted weather to the user for the selected date       | ![weather forecast test](readme-images/weather-forecast-test.png) |  Pass          |
+| Weather Forecast | Provide weather alert for the week to the user       | ![Weather alert image](readme-images/weather-alert-test.png) |  Pass          |
 | Past Weather     | Validate User Input                   | ![Past weather validation](readme-images/invalid-date.png) | Pass          |
+| Past Weather | Provide past weather to the user for the selected date       | ![Past weather testing](readme-images/past-weather-test.png) |  Pass          |
 | New City         | Allow user to enter new city          | ![New city input](readme-images/new-input.png)             | Pass          |
 
 # Bugs
