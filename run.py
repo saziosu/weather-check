@@ -245,9 +245,14 @@ def main():
         # Requests user's city input and confirms validity
         try:
             city = input("Please enter your city: \n")
-            # convert return tuple into variables
-            latitude, longitude = city_check(city)
+            if not city.isalpha():
+                raise SyntaxError("Only letters allowed.")
+            else:
+                # convert return tuple into variables
+                latitude, longitude = city_check(city)
             break
+        except SyntaxError:
+            cprint("Only letters are allowed. Please try again.", "red")
         except IndexError:
             cprint("Invalid City, please try again", "red")
     # Loop all options after each selection
