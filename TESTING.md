@@ -9,7 +9,7 @@ Link for the finished deployed site: [Weather Check](https://weather-check-e66ed
 
 # Table of Contents
 
-* [Automated Testing](#automated-testing)
+* [Testing Tools](#testing-tools)
 * [Manual Testing](#manual-testing)
     * [User Testing](#user-testing)
     * [Full Testing](#full-testing)
@@ -17,7 +17,7 @@ Link for the finished deployed site: [Weather Check](https://weather-check-e66ed
     * [Known Bugs](#known-bugs)
     * [Fixed Bugs](#fixed-bugs)
 
-# Automated Testing
+# Testing Tools
 
 [CI Python Linter](https://pep8ci.herokuapp.com/) was used to test the python code.
 
