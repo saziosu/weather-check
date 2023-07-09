@@ -58,7 +58,7 @@ def city_check(city_select):
     country = location_detail["country"]
     if location_status == 200:
         cprint(
-            f"Great! Checking weather for {city_select},{country}.", "cyan")
+            f"\nGreat! Checking weather for {city_select},{country}.", "cyan")
     else:
         print("Error found, please try again later")
     return latitude, longitude
