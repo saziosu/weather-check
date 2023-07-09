@@ -223,7 +223,7 @@ def weather_history(lat, long):
                 past_data_list["sunrise"] + past_data["timezone_offset"]))[-8:]
             past_sunset = str(datetime.fromtimestamp(
                 past_data_list["sunset"] + past_data["timezone_offset"]))[-8:]
-            # prints past weather data to the user
+            # Prints past weather data to the user
             print(f"\nOn this day there were some {past_main}")
             print(f"Cloud cover was {past_cloud}%")
             print(f"Wind speed was {past_speed}m/s")
@@ -248,7 +248,7 @@ def main():
             if not city.isalpha():
                 raise SyntaxError("Only letters allowed.")
             else:
-                # convert return tuple into variables
+                # Convert return tuple into variables
                 latitude, longitude = city_check(city)
             break
         except SyntaxError:
