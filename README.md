@@ -67,20 +67,20 @@ The project aims to give clear feedback and several options to give the user a w
 
 ![welcome message](readme-images/welcome-message.png)
 
-The welcome message uses ascii art to personalise the app.
-It uses a title and an umbrella ascii image.
+The welcome message uses ascii art to personalise the app and give further context to the user on what the subject of the program is, via the title and umbrella image.
 The welcome message allows the user to understand the purpose of the app, and asks them to enter their city.
-If an invalid city is added, the user is asked to enter a valid city.
+If an invalid city is added, the user is asked to try again and enter a city.
 
 ### Navigation
 
-![city confirmation](readme-images/weather-options.png)
+![navigation image](readme-images/weather-options.png)
 
 The app will confirm the user's city and print the corresponding country code. 
 This gives the user confirmation that the app is checking the correct city.
 The app then provides four options; current weather, forecasted weather, past weather and enter a new city.
-The options also give a key on how to select them.
+The options also give a key on how to select them, so the user is aware exactly what they need to enter to navigate succesfully.
 After each selection is chosen, the user will see the options again to choose a new request or start the process with a new city.
+There is validation on this step that ensures the user cannot break the application, and provides them with feedback so they are aware where they went wrong.
 
 ### Current Weather
 
@@ -89,6 +89,7 @@ After each selection is chosen, the user will see the options again to choose a 
 The current weather is selected by entering 1 into the options.
 This provides current weather information to the user, including sunrise and sunset times based on the city's local time.
 
+
 ### Weather Forecast
 
 ![weather forecast](readme-images/valid-forecast.png)
@@ -96,6 +97,7 @@ This provides current weather information to the user, including sunrise and sun
 The weather forecast is selected by entering 2 into the options.
 The user is then asked to enter how many days in the future they would like to see the forecast for.
 The app will then confirm the date that it is showing the forecast for.
+There is validation on this step, which provides clear feedback to the user and asks them to try again if it is incorrect.
 If there is a weather alert, this will display on this page:
 
 ![weather alert](readme-images/weather-alert.png)
@@ -108,6 +110,7 @@ The past weather is selected by entering 3 into the options.
 The user is then asked to enter the date they would like to check the weather for.
 The user can choose a date from 01/01/1979.
 The date must be the format of DD/MM/YYYY, if the user enters an incorrect format or date and error will be shown.
+If an error is shown, the user will be given the opportunity to input their choice again.
 
 ### New City
 
