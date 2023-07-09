@@ -38,7 +38,7 @@ def welcome_message():
         ),
         "green"
     )
-    cprint(f"Weather Forecast can be checked up to 8 days", "green")
+    cprint(f"Weather Forecast can be checked up to 7 days", "green")
     cprint(f"Past weather data can be checked from 01/01/1979.\n", "green")
 
 
@@ -259,7 +259,7 @@ def main():
     while True:
         print(f"\nPlease choose an option:\n")
         print(f"1 - View current weather")
-        print(f"2 - View weather forecast (up to 8 days)")
+        print(f"2 - View weather forecast (up to 7 days)")
         print(f"3 - View past weather")
         print(f"4 - Choose a new city")
         try:
